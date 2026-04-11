@@ -4,6 +4,8 @@
 
 Think of it as the collision of live game shows and crypto giveaways: a host puts up MON (or ERC-20 tokens), players jump in, play quick skill-based rounds, and the best players walk away with real rewards.
 
+**Deployment Link**: [Wandash Page](https://wandash-monadblitzlagos.vercel.app/)
+
 ---
 
 ## Why Wandash?
