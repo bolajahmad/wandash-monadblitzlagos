@@ -1,0 +1,15 @@
+import RootProvider from "@/lib/context/web3-auth"
+
+export default function GameLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <RootProvider>
+      <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-primary-foreground">
+        {children}
+      </div>
+    </RootProvider>
+  )
+}
