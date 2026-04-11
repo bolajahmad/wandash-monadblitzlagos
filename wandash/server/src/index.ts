@@ -14,9 +14,14 @@ const log = createLogger("Server");
 
 const app = express();
 
+// Normalize origins (strip trailing slashes)
+const allowedOrigins = env.corsOrigin
+  .split(",")
+  .map(s => s.trim().replace(/\/+$/, ""));
+
 // Middleware
 app.use(cors({
-  origin: env.corsOrigin.split(",").map(s => s.trim()),
+  origin: allowedOrigins,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
