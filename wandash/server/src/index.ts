@@ -15,7 +15,9 @@ const log = createLogger("Server");
 const app = express();
 
 // Middleware
-app.use(cors({ origin: env.corsOrigin }));
+app.use(cors({
+  origin: env.corsOrigin.split(",").map(s => s.trim()),
+}));
 app.use(express.json());
 
 // Health check

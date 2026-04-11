@@ -167,7 +167,11 @@ export const AuthenticateUser = () => {
 
 const HostAuthenticatedInformation = () => {
   const { isConnected, address, connector } = useConnection()
-  const { mutate: connectWallet, isPending } = useConnect()
+  const { mutate: connectWallet, isPending } = useConnect({
+    mutation: {
+      onError: error => console.log({ error })
+    }
+  })
   const { mutate: disconnectWallet, isPending: isDisconnecting } =
     useDisconnect()
   const [hostProfile] = useState({
