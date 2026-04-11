@@ -8,9 +8,10 @@ export function useGameSocket(giveawayId: string, walletAddress: string, display
   useEffect(() => {
     if (!walletAddress) return
 
-    const ws = connectSocket(
-      process.env.NEXT_PUBLIC_WS_URL || "ws://localhost:3001"
-    )
+    const serverUrl = process.env.NEXT_PUBLIC_WS_URL
+      || process.env.NEXT_PUBLIC_SERVER_URL?.replace(/^http/, "ws")
+      || "ws://localhost:3001"
+    const ws = connectSocket(serverUrl)
 
     ws.onopen = () => {
       ws.send(JSON.stringify({

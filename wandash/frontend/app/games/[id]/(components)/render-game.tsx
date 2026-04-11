@@ -282,8 +282,6 @@ const GameEnded = ({ giveaway }: { giveaway?: IGiveaway }) => {
   const finalWinners = useGameStore((s) => s.finalWinners)
   const roundResults = useGameStore((s) => s.roundResults)
 
-  console.log({ finalWinners});
-
   return (
     <div className="fixed inset-0 z-60 flex flex-col items-center justify-center bg-background p-6 text-center">
       <div className="w-full max-w-md space-y-6">
@@ -428,7 +426,7 @@ const GameLobby = ({
               className="text-primary"
             />
           </svg>
-          <span className="absolute text-9xl font-black">
+          <span className="absolute text-5xl font-black">
             {countdown !== null ? `${countdown}s` : "..."}
           </span>
         </div>
